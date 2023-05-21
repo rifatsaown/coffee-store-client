@@ -1,17 +1,18 @@
-## This is the starter template for the project that requires
+## coffee-store-client
 
 - React
 - React Router
 - Tailwind CSS
 - DaisyUI
 - React Icons
+- SweetAlert2
 
-## How to use this template
+## How to use this
 ### Recommend using [yarn](https://yarnpkg.com/) as the package manager.
 
 #### Step 1: Clone the repository
 ```bash
-git clone https://github.com/Wizard-Squad/react-router-daisyiu-starter.git
+git clone 
 ```
 
 #### Step 2: Install all the dependencies
@@ -49,4 +50,4 @@ or
 ```bash
 npm run build
 ```
-# coffee-store-client
+
