@@ -1,4 +1,7 @@
 ## coffee-store-client
+
+## Live Link : https://gentle-jalebi-b4f691.netlify.app/
+## Backend Link : https://coffee-store-server-five.vercel.app/ , Github Link : https://github.com/rifatsaown/coffee-store-server
 ## This is CRUD Project with ReactJS and TailwindCSS for Frontend and NodeJS for Backend and MongoDB for Database
 
 - React
