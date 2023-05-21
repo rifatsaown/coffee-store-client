@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
-import Form from "./Form";
 import Swal from "sweetalert2";
+import Form from "./Form";
 
 const UpdateCoffee = () => {
   const coffee = useLoaderData();
@@ -16,15 +16,14 @@ const UpdateCoffee = () => {
       details: e.target.details.value,
       photoUrl: e.target.photoUrl.value,
     };
-    fetch(`http://localhost:5000/coffee/${_id}`, {
+    fetch(`https://coffee-store-server-five.vercel.app/coffee/${_id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(coffee),
-    })
-      .then((res) => res.json())
+    }).then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-            console.log(data);
+          console.log(data);
           Swal.fire({
             icon: "success",
             title: "Coffee Updated Successfully",
@@ -32,7 +31,8 @@ const UpdateCoffee = () => {
             timer: 1500,
           });
         }
-      }).catch(err=>console.log(err));
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

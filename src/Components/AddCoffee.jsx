@@ -14,7 +14,7 @@ const AddCoffee = () => {
       photoUrl: e.target.photoUrl.value,
     };
     console.log(coffee);
-    fetch("http://localhost:5000/coffees", {
+    fetch("https://coffee-store-server-five.vercel.app/coffees", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(coffee),

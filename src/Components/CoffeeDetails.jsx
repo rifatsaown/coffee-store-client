@@ -3,7 +3,7 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const CoffeeDetails = ({ coffee , coffees , setCoffees }) => {
+const CoffeeDetails = ({ coffee, coffees, setCoffees }) => {
   const { _id, name, quantity, supplier, taste, details, photoUrl } = coffee;
 
   const handleDelete = (id) => {
@@ -17,16 +17,19 @@ const CoffeeDetails = ({ coffee , coffees , setCoffees }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/coffees/${id}`, {
+        fetch(`https://coffee-store-server-five.vercel.app/coffees/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
-            if (data.deletedCount>0) {
+            if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your Coffee has been deleted.", "success");
-            }
-            else{
-              Swal.fire("Deleted!", "Your Coffee has been already deleted.", "error");
+            } else {
+              Swal.fire(
+                "Deleted!",
+                "Your Coffee has been already deleted.",
+                "error"
+              );
             }
             const remainingCoffees = coffees.filter((cof) => cof._id !== id);
             setCoffees(remainingCoffees);
@@ -52,7 +55,9 @@ const CoffeeDetails = ({ coffee , coffees , setCoffees }) => {
           <div className="mr-8">
             <div className="btn-group btn-group-vertical ">
               <button className="btn">View</button>
-              <Link className="btn btn-primary" to={`/coffee/${_id}`}>Edit</Link>
+              <Link className="btn btn-primary" to={`/coffee/${_id}`}>
+                Edit
+              </Link>
               <button onClick={() => handleDelete(_id)} className="btn">
                 Delete
               </button>
