@@ -3,7 +3,7 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const CoffeeDetails = ({ coffee }) => {
+const CoffeeDetails = ({ coffee , coffees , setCoffees }) => {
   const { _id, name, quantity, supplier, taste, details, photoUrl } = coffee;
 
   const handleDelete = (id) => {
@@ -28,6 +28,8 @@ const CoffeeDetails = ({ coffee }) => {
             else{
               Swal.fire("Deleted!", "Your Coffee has been already deleted.", "error");
             }
+            const remainingCoffees = coffees.filter((cof) => cof._id !== id);
+            setCoffees(remainingCoffees);
           });
       }
     });
